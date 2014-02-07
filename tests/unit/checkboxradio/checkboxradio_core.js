@@ -189,4 +189,17 @@
 		deepEqual( v.prev().hasClass( "ui-checkbox-on" ), false, "Vertical: After unchecking and refreshing, the label does not have the ui-checkbox-on class" );
 		deepEqual( v.prev().hasClass( "ui-checkbox-off" ), true, "Vertical: After unchecking and refreshing, the label has the ui-checkbox-off class" );
 	});
+
+	test( "Unnamed radio", function() {
+		var radio = $( "#unnamed-radio" ),
+			label = radio.siblings( "label" );
+
+		label.click();
+		deepEqual( radio.prop( "checked" ), true,
+			"Clicking unnamed radio label checks it" );
+		deepEqual( label.hasClass( "ui-radio-on" ), true,
+			"After click, label has checked class" );
+		deepEqual( label.hasClass( "ui-radio-off" ), false,
+			"After click, label does not have unchecked class" );
+	});
 })(jQuery);
